@@ -16,6 +16,7 @@ from .optimizer import (
     _params_doc,
     _use_grad_for_differentiable,
     _view_as_real,
+    _to_scalar,
     Optimizer,
     ParamsT,
 )
@@ -174,7 +175,7 @@ class Adadelta(Optimizer):
                 square_avgs,
                 acc_deltas,
                 state_steps,
-                lr=lr,
+                lr=_to_scalar(lr),
                 rho=rho,
                 eps=eps,
                 weight_decay=weight_decay,

@@ -17,6 +17,7 @@ from .optimizer import (
     _params_doc,
     _use_grad_for_differentiable,
     _view_as_real,
+    _to_scalar,
     Optimizer,
     ParamsT,
 )
@@ -179,7 +180,7 @@ class RMSprop(Optimizer):  # noqa: D101
                 grad_avgs,
                 momentum_buffer_list,
                 state_steps,
-                lr=group["lr"],
+                lr=_to_scalar(group["lr"]),
                 alpha=group["alpha"],
                 eps=group["eps"],
                 weight_decay=group["weight_decay"],

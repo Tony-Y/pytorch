@@ -15,6 +15,7 @@ from .optimizer import (
     _params_doc,
     _use_grad_for_differentiable,
     _view_as_real,
+    _to_scalar,
     Optimizer,
     ParamsT,
 )
@@ -171,7 +172,7 @@ class Adagrad(Optimizer):
                 grads,
                 state_sums,
                 state_steps,
-                lr=group["lr"],
+                lr=_to_scalar(group["lr"]),
                 weight_decay=group["weight_decay"],
                 lr_decay=group["lr_decay"],
                 eps=group["eps"],

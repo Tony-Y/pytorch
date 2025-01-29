@@ -17,6 +17,7 @@ from .optimizer import (
     _params_doc,
     _use_grad_for_differentiable,
     _view_as_real,
+    _to_scalar,
     Optimizer,
     ParamsT,
 )
@@ -162,7 +163,7 @@ class Adamax(Optimizer):
                 eps=eps,
                 beta1=beta1,
                 beta2=beta2,
-                lr=lr,
+                lr=_to_scalar(lr),
                 weight_decay=weight_decay,
                 foreach=foreach,
                 maximize=maximize,

@@ -18,6 +18,7 @@ from .optimizer import (
     _params_doc,
     _use_grad_for_differentiable,
     _view_as_real,
+    _to_scalar,
     Optimizer,
     ParamsT,
 )
@@ -157,7 +158,7 @@ class RAdam(Optimizer):  # noqa: D101
                 state_steps,
                 beta1=beta1,
                 beta2=beta2,
-                lr=group["lr"],
+                lr=_to_scalar(group["lr"]),
                 weight_decay=group["weight_decay"],
                 eps=group["eps"],
                 maximize=group["maximize"],

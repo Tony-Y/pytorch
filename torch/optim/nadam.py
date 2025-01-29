@@ -19,6 +19,7 @@ from .optimizer import (
     _stack_if_compiling,
     _use_grad_for_differentiable,
     _view_as_real,
+    _to_scalar,
     Optimizer,
     ParamsT,
 )
@@ -194,7 +195,7 @@ class NAdam(Optimizer):  # noqa: D101
                 state_steps,
                 beta1=beta1,
                 beta2=beta2,
-                lr=group["lr"],
+                lr=_to_scalar(group["lr"]),
                 weight_decay=group["weight_decay"],
                 momentum_decay=group["momentum_decay"],
                 eps=group["eps"],
