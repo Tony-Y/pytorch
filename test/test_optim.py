@@ -10,6 +10,7 @@ from unittest.mock import patch
 from optim.test_lrscheduler import TestLRScheduler  # noqa: F401
 from optim.test_optim import TestDifferentiableOptimizer  # noqa: F401
 from optim.test_swa_utils import TestSWAUtils  # noqa: F401
+from optim.test_tensor_lr import TestTensorLR  # noqa: F401
 
 import torch
 from torch.nn import Parameter
